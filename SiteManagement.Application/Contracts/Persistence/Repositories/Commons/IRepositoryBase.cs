@@ -9,5 +9,6 @@ namespace SiteManagement.Application.Contracts.Persistence.Repositories.Commons
 {
     public interface IRepositoryBase<T> where T : EntityBase
     {
+        Task<IReadOnlyList<T>> GetAllAsync();
     }
 }
