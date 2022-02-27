@@ -5,15 +5,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SiteManagement.Domain.Entities.Flats
+namespace SiteManagement.Domain.Entities.Contracts
 {
-    public class Flats : EntityBase
+    public class Flat : EntityBase
     {
-        public int Id { get; set; }
         public int BlockId { get; set; }
         public int Floor { get; set; }
-        public bool IsEmpty { get; set; }
+        public bool IsFull { get; set; }
+        public int DoorNumber { get; set; }
         public string Type { get; set; }
-        public string UserId { get; set; }
     }
 }

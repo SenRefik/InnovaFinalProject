@@ -7,8 +7,11 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
+using SiteManagement.Application;
+using SiteManagement.Application.Contracts.Persistence.Repositories.Commons;
 using SiteManagement.Infrastructure;
 using SiteManagement.Infrastructure.Contracts.Repositories;
+using SiteManagement.Infrastructure.Contracts.Repositories.Commons;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -27,10 +30,10 @@ namespace SiteManagement.API
 
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
-        {        
-            services.AddControllers();
-
+        {
+            services.AddApplicationServices(Configuration);
             services.AddInfrastructureService(Configuration);
+            services.AddControllers();
 
             services.AddSwaggerGen(c =>
             {
@@ -51,6 +54,8 @@ namespace SiteManagement.API
             app.UseHttpsRedirection();
 
             app.UseRouting();
+
+            app.UseAuthentication();
 
             app.UseAuthorization();
 

@@ -1,4 +1,5 @@
-﻿using SiteManagement.Application.Contracts.Persistence.Repositories.Commons;
+﻿using Microsoft.EntityFrameworkCore;
+using SiteManagement.Application.Contracts.Persistence.Repositories.Commons;
 using SiteManagement.Domain.Entities.Commons;
 using System;
 using System.Collections.Generic;
@@ -10,18 +11,26 @@ namespace SiteManagement.Infrastructure.Contracts.Repositories.Commons
 {
     public class RepositoryBase<T> : IRepositoryBase<T> where T : EntityBase
     {
-        protected readonly ApplicationContext _dbContext;
+        protected readonly ApplicationContext _appContext;
 
-        public RepositoryBase(ApplicationContext dbContext)
+        public RepositoryBase(ApplicationContext appContext)
         {
-            _dbContext = dbContext ?? throw new ArgumentNullException(nameof(dbContext));
+            _appContext = appContext;
             
         }
 
+
         public async Task<IReadOnlyList<T>> GetAllAsync()
         {
-            var allFlats = _dbContext.Set<T>().ToList();
-            return allFlats;
+            var entity = await _appContext.Set<T>().ToListAsync();
+            return entity;
+        }
+
+        public async Task<T> AddAsync(T entity)
+        {
+            _appContext.Set<T>().Add(entity);
+            await _appContext.SaveChangesAsync();
+            return entity;
         }
     }
 }

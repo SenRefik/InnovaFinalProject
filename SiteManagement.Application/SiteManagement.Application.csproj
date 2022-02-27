@@ -9,8 +9,24 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Contracts\Persistence\Repositories\Flats\" />
     <Folder Include="Contracts\Persistence\Repositories\Users\" />
+    <Folder Include="Feautres\Commands\Bills\" />
+    <Folder Include="Feautres\Commands\Fees\" />
+    <Folder Include="Feautres\Commands\FlatsOfUsers\DeleteFlatOfUser\" />
+    <Folder Include="Feautres\Commands\FlatsOfUsers\UpdateFlatOfUser\" />
+    <Folder Include="Feautres\Commands\Flats\DeleteFlat\" />
+    <Folder Include="Feautres\Commands\Flats\UpdateFlat\" />
+    <Folder Include="Feautres\Queries\" />
+    <Folder Include="Models\Fees\" />
+    <Folder Include="Models\Bills\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="11.0.1" />
+    <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="11.0.0" />
+    <PackageReference Include="FluentValidation" Version="10.3.6" />
+    <PackageReference Include="MediatR" Version="10.0.1" />
+    <PackageReference Include="MediatR.Extensions.Microsoft.DependencyInjection" Version="10.0.1" />
   </ItemGroup>
 
 </Project>

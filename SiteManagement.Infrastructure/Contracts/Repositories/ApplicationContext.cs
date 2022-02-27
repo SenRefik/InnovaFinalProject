@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using SiteManagement.Domain.Entities.Authentications;
+using SiteManagement.Domain.Entities.Contracts;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,5 +16,9 @@ namespace SiteManagement.Infrastructure.Contracts.Repositories
         {
 
         }
+
+        #region Tables
+        public DbSet<Flat> Flats { get; set; }
+        #endregion
     }
 }
