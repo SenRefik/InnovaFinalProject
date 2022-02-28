@@ -10,15 +10,6 @@
 
   <ItemGroup>
     <Folder Include="Contracts\Persistence\Repositories\Users\" />
-    <Folder Include="Feautres\Commands\Bills\" />
-    <Folder Include="Feautres\Commands\Fees\" />
-    <Folder Include="Feautres\Commands\FlatsOfUsers\DeleteFlatOfUser\" />
-    <Folder Include="Feautres\Commands\FlatsOfUsers\UpdateFlatOfUser\" />
-    <Folder Include="Feautres\Commands\Flats\DeleteFlat\" />
-    <Folder Include="Feautres\Commands\Flats\UpdateFlat\" />
-    <Folder Include="Feautres\Queries\" />
-    <Folder Include="Models\Fees\" />
-    <Folder Include="Models\Bills\" />
   </ItemGroup>
 
   <ItemGroup>

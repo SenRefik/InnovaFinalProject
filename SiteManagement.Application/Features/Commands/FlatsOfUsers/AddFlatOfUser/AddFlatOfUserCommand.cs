@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SiteManagement.Application.Feautres.Commands.FlatsOfUsers.AddFlatOfUser
+namespace SiteManagement.Application.Features.Commands.FlatsOfUsers.AddFlatOfUser
 {
     public class AddFlatOfUserCommand : AddFlatOfUserDto, IRequest<int>
     {

@@ -1,15 +1,12 @@
 ﻿using MediatR;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
-using SiteManagement.Application.Contracts.Persistence.Repositories.Commons;
 using SiteManagement.Application.Contracts.Persistence.Repositories.Contracts;
-using SiteManagement.Application.Feautres.Commands.FlatsOfUsers.AddFlatOfUser;
-using SiteManagement.Domain.Entities.Contracts;
+using SiteManagement.Application.Features.Commands.FlatsOfUsers.AddFlatOfUser;
+using SiteManagement.Application.Features.Commands.FlatsOfUsers.DeleteFlatOfUser;
+using SiteManagement.Application.Features.Commands.FlatsOfUsers.UpdateFlatOfUser;
+using SiteManagement.Application.Features.Queries.FlatsOfUsers;
 using SiteManagement.Infrastructure.Contracts.Repositories;
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
 
 namespace SiteManagement.API.Controllers
@@ -17,25 +14,19 @@ namespace SiteManagement.API.Controllers
     [ApiController]
     [Route("[controller]")]
     public class FlatOfUserController : ControllerBase
-    {
-        private readonly ILogger<FlatOfUserController> _logger;
-        private readonly IFlatOfUserRepository FlatOfUserRepository;
-        private readonly ApplicationContext _appContext;
+    {   
         private readonly IMediator _mediator;
 
-
-        public FlatOfUserController(ILogger<FlatOfUserController> logger, ApplicationContext appContext, IMediator mediator)
+        public FlatOfUserController(IMediator mediator)
         {
-            _logger = logger;
-            _appContext = appContext;
             _mediator = mediator;
         }
 
         [HttpGet]
-        public async Task<List<FlatOfUser>> GetAll()
+        public async Task<IActionResult> GetAll()
         {
-            var value = _appContext.Set<FlatOfUser>();
-            return await value.ToListAsync();
+            var result = await _mediator.Send(new GetFlatOfUserListQuery());
+            return Ok(result);
         }
 
         [HttpPost]
@@ -45,6 +36,19 @@ namespace SiteManagement.API.Controllers
             return Ok(result);
         }
 
+        [HttpDelete]
+        public async Task<IActionResult> Remove([FromBody] DeleteFlatOfUserCommand deleteFlatOfUser)
+        {
+            var result = await _mediator.Send(deleteFlatOfUser);
+            return Ok(result);
+        }
 
+
+        [HttpPut]
+        public async Task<IActionResult> Update([FromBody] UpdateFlatOfUserCommand updateFlatOfUser)
+        {
+            var result = await _mediator.Send(updateFlatOfUser);
+            return Ok(result);
+        }
     }
 }

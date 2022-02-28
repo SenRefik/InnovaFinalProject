@@ -1,13 +1,12 @@
-﻿using SiteManagement.Domain.Entities.Commons;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SiteManagement.Domain.Entities.Contracts
+namespace SiteManagement.Application.Models.Bills
 {
-    public class Bill : EntityBase
+    public class AddBillDto
     {
         public int FlatId { get; set; }
         public int BillTypeId { get; set; }

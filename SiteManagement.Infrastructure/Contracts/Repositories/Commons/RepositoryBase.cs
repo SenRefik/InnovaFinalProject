@@ -22,8 +22,10 @@ namespace SiteManagement.Infrastructure.Contracts.Repositories.Commons
 
         public async Task<IReadOnlyList<T>> GetAllAsync()
         {
-            var entity = await _appContext.Set<T>().ToListAsync();
-            return entity;
+            var entity = _appContext.Set<T>().AsNoTracking();
+            return await entity.ToListAsync();
+            //var entity = await _appContext.Set<T>().ToListAsync();
+            //return entity;
         }
 
         public async Task<T> AddAsync(T entity)
@@ -31,6 +33,24 @@ namespace SiteManagement.Infrastructure.Contracts.Repositories.Commons
             _appContext.Set<T>().Add(entity);
             await _appContext.SaveChangesAsync();
             return entity;
+        }
+
+        public async Task<T> GetByIdAsync(int entityId)
+        {
+            var list = _appContext.Set<T>().AsNoTracking();
+            return await list.FirstOrDefaultAsync(x => x.Id == entityId);
+        }
+
+        public async Task UpdateAsync(T entity)
+        {
+            _appContext.Entry(entity).State = EntityState.Modified;
+            await _appContext.SaveChangesAsync();
+        }
+
+        public async Task RemoveAsync(T entity)
+        {
+            _appContext.Set<T>().Remove(entity);
+            await _appContext.SaveChangesAsync();
         }
     }
 }

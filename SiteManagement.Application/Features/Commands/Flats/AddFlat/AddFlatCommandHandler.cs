@@ -10,7 +10,7 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace SiteManagement.Application.Feautres.Flats.Commands.AddFlat
+namespace SiteManagement.Application.Features.Commands.Flats.AddFlat
 {
     public class AddFlatCommandHandler : IRequestHandler<AddFlatCommand, int>
     {

@@ -8,7 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SiteManagement.Infrastructure.Contracts.Repositories
+namespace SiteManagement.Infrastructure.Contracts.Repositories.Contracts
 {
     public class FlatRepository : RepositoryBase<Flat>, IFlatRepository
     {

@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SiteManagement.Application.Feautres.Flats.Commands.AddFlat
+namespace SiteManagement.Application.Features.Commands.Flats.AddFlat
 {
     public class AddFlatCommand : AddFlatDto, IRequest<int>
     {

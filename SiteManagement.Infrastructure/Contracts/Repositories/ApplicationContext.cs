@@ -19,6 +19,11 @@ namespace SiteManagement.Infrastructure.Contracts.Repositories
 
         #region Tables
         public DbSet<Flat> Flats { get; set; }
+        public DbSet<User> AspNetUsers { get; set; }
+        public DbSet<FlatOfUser> FlatsOfUsers { get; set; }
+        public DbSet<Bill> Bills { get; set; }
+        public DbSet<Fee> Fees { get; set; }
+        public DbSet<BillType> BillTypes { get; set; }
         #endregion
     }
 }
