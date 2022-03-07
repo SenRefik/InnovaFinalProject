@@ -1,9 +1,9 @@
 ﻿using MediatR;
 using Microsoft.AspNetCore.Mvc;
+using SiteManagement.Application.Features.Queries.Fees;
 using SiteManagement.Application.Features.Commands.Fees.AddFee;
 using SiteManagement.Application.Features.Commands.Fees.DeleteFee;
 using SiteManagement.Application.Features.Commands.Fees.UpdateFee;
-using SiteManagement.Application.Features.Queries.Fees;
 using System.Threading.Tasks;
 
 namespace SiteManagement.API.Controllers

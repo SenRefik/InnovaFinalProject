@@ -1,9 +1,4 @@
 ﻿using Microsoft.AspNetCore.Identity;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace SiteManagement.Domain.Entities.Authentications
 {
@@ -15,6 +10,5 @@ namespace SiteManagement.Domain.Entities.Authentications
         public string Email { get; set; }
         public string PhoneNumber { get; set; }
         public string LicencePlate { get; set; }
-
     }
 }

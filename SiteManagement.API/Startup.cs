@@ -1,21 +1,13 @@
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpsPolicy;
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
 using SiteManagement.Application;
-using SiteManagement.Application.Contracts.Persistence.Repositories.Commons;
+using SiteManagement.Domain.Entities.Authentications;
 using SiteManagement.Infrastructure;
 using SiteManagement.Infrastructure.Contracts.Repositories;
-using SiteManagement.Infrastructure.Contracts.Repositories.Commons;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace SiteManagement.API
 {
@@ -32,6 +24,7 @@ namespace SiteManagement.API
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddApplicationServices(Configuration);
+            services.AddIdentity<User, Role>().AddEntityFrameworkStores<AppDbContext>();
             services.AddInfrastructureService(Configuration);
             services.AddControllers();
 

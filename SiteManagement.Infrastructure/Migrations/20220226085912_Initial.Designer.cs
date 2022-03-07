@@ -9,7 +9,7 @@ using SiteManagement.Infrastructure.Contracts.Repositories;
 
 namespace SiteManagement.Infrastructure.Migrations
 {
-    [DbContext(typeof(ApplicationContext))]
+    [DbContext(typeof(Contracts.Repositories.AppDbContext))]
     [Migration("20220226085912_Initial")]
     partial class Initial
     {

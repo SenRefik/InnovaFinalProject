@@ -18,6 +18,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\SiteManagement.Application\SiteManagement.Application.csproj" />
     <ProjectReference Include="..\SiteManagement.Infrastructure\SiteManagement.Infrastructure.csproj" />
   </ItemGroup>
 

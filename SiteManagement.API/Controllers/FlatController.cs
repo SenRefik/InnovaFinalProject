@@ -1,9 +1,9 @@
 ﻿using MediatR;
 using Microsoft.AspNetCore.Mvc;
+using SiteManagement.Application.Features.Queries.Flats;
 using SiteManagement.Application.Features.Commands.Flats.AddFlat;
 using SiteManagement.Application.Features.Commands.Flats.DeleteFlat;
 using SiteManagement.Application.Features.Commands.Flats.UpdateFlat;
-using SiteManagement.Application.Features.Queries.Flats;
 using System.Threading.Tasks;
 
 namespace SiteManagement.API.Controllers

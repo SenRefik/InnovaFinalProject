@@ -1,12 +1,9 @@
 ﻿using MediatR;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Logging;
-using SiteManagement.Application.Contracts.Persistence.Repositories.Contracts;
+using SiteManagement.Application.Features.Queries.FlatsOfUsers;
 using SiteManagement.Application.Features.Commands.FlatsOfUsers.AddFlatOfUser;
 using SiteManagement.Application.Features.Commands.FlatsOfUsers.DeleteFlatOfUser;
 using SiteManagement.Application.Features.Commands.FlatsOfUsers.UpdateFlatOfUser;
-using SiteManagement.Application.Features.Queries.FlatsOfUsers;
-using SiteManagement.Infrastructure.Contracts.Repositories;
 using System.Threading.Tasks;
 
 namespace SiteManagement.API.Controllers
